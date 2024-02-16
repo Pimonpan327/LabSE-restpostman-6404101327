@@ -26,6 +26,12 @@ app.put('/books/:id', (req, res) => {
     res.json(Object.assign(books[updateIndex], req.body))
   })
 
+  app.delete('/books/:id', (req, res) => {
+    const deletedIndex = books.findIndex(book => book.id === req.params.id)
+    delete books[deleteIndex];
+   res.status(200).json(req.body)
+})
+
 app.listen(3000, () => {
   console.log('http://localhost:3000')
 })
